@@ -128,6 +128,20 @@ if (!is_null($events['events'])) {
 			$userID = $source['userId'];
 		
 			// Send to web service
+			
+			
+			
+			
+			
+			
+			
+			
+//			replyToUser($replyToken,$messages,$access_token);
+		//	echo "Ready to request for profile";
+			// Request for profile
+			requestForProfile($access_token,$userID);
+			
+			
 			$url = 'http://13.228.191.82/';
 			$data = [
 				'userID' => $userID;
@@ -143,20 +157,6 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-			
-			
-			
-			
-			
-			
-			
-//			replyToUser($replyToken,$messages,$access_token);
-		//	echo "Ready to request for profile";
-			// Request for profile
-			requestForProfile($access_token,$userID);
-			
-			
-			
 		}
 	
 }
