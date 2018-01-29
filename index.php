@@ -129,11 +129,11 @@ if (!is_null($events['events'])) {
 		
 			// Send to web service
 			$url = 'http://13.228.191.82/?userID=' . $userID;
-			$data = [
-				'to' => $userID,
-				'messages' => [$message]
-			];
-			$post = json_encode($data);
+	//		$data = [
+	//			'to' => $userID,
+	//			'messages' => [$message]
+	//		];
+		//	$post = json_encode($data);
 			$headers = array('Content-Type: application/json');
 
 			$ch = curl_init($url);
