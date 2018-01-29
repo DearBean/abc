@@ -127,7 +127,7 @@ if (!is_null($events['events'])) {
 			$source = $event['source'];
 			$userID = $source['userId'];
 		
-			// Send to web service
+		/*	// Send to web service
 			$url = 'http://13.228.191.82';
 			$data = [
 				'userID' => $userID;
@@ -145,7 +145,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 			
 			
-			
+			*/
 			
 			
 			
