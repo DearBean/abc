@@ -144,7 +144,7 @@ if (!is_null($profile['events'])) {
 			// Build message to reply back
 				$messages = [
 					'type' => 'text',
-					'text' => "Respond :" . $profile_content
+					'text' => "Respond :" . $event['displayName']
 				];
 			
 			replyToUser($replyToken,$messages,$access_token);
