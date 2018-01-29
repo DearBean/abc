@@ -72,7 +72,7 @@ function replyToUser($reToken,$message,$ac_token){
 	//echo $result . "\r\n";
 }
 
-$result;
+$result = 'a';
 function requestForProfile($ac_token,$userID){
 	
 	// Make a GET request to Messaging API to get profile
@@ -129,7 +129,7 @@ if (!is_null($events['events'])) {
 
 // Get profile
 // Get POST body content
-$profile_content = $result;//file_get_contents('php://input');
+$profile_content = $result; //file_get_contents('php://input');
 // Parse JSON
 $profile = json_decode($profile_content, true);
 
