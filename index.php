@@ -113,17 +113,23 @@ if (!is_null($events['events'])) {
 			// Get userID and userName
 			$source = $event['source'];
 			$userID = $source['userid'];
+			$messages = [
+					'type' => 'text',
+					'text' => "Respond :" . $source
+				];
 			
-			echo "Ready to request for profile";
+			
+			replyToUser($replyToken,$messages,$access_token);
+			//echo "Ready to request for profile";
 			// Request for profile
-			requestForProfile($access_token,$userID);
+			//requestForProfile($access_token,$userID);
 			
 			
 			
 		}
 	
 }
-
+/*
 // Get profile
 // Get POST body content
 $profile_content = file_get_contents('php://input');
@@ -151,7 +157,7 @@ if (!is_null($profile['events'])) {
 			
 		}
 	
-}
+}*/
 
 
 echo "what's up  ";
