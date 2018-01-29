@@ -133,7 +133,7 @@ if (!is_null($events['events'])) {
 			
 			
 			$data = array(
-				'userID' => "aaa",
+				'userID' => $userID,
 				'userName' => 'bbb'
 			);
 			# Create a connection
