@@ -128,7 +128,7 @@ if (!is_null($events['events'])) {
 			$userID = $source['userId'];
 		
 			// Send to web service
-			$url = 'http://13.228.191.82';
+			$url = 'http://13.228.191.82/';
 			$data = [
 				'userID' => $userID;
 			];
