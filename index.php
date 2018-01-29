@@ -5,7 +5,7 @@ function replyToUser($reToken,$message,$ac_token){
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
 		'replyToken' => $reToken,
-		'messages' => [$message]
+		'messages' => $message
 	];
 	$post = json_encode($data);
 	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $ac_token);
@@ -41,7 +41,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 				$messages = [
 					'type' => 'text',
-					'text' => "Respond :" . $events['events']
+					'text' => "Respond :" . $content
 				];
 			
 			replyToUser($replyToken,$messages,$access_token);
