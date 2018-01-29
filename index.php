@@ -87,34 +87,19 @@ function requestForProfile($ac_token,$userID){
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	$response = curl_exec($ch);
 	curl_close($ch);
-	// Get profile
-	// Get POST body content
-	//$profile_content = file_get_contents('php://input');
-	// Parse JSON
-	//$profile = json_decode($profile_content, true);
-
-
-
-
-	//if (!is_null($profile['events'])) {
-			
-			// Loop through each event
-		//	foreach ($profile['events'] as $event) {
+	
 				
+	// Build message to reply back
+	$messages = [
+		'type' => 'text',
+		'text' => "Respond :" . $response
+	];
 				
-				// Build message to reply back
-					$messages = [
-						'type' => 'text',
-						'text' => "Respond :" . $response
-					];
-				
-				replyToUser($userID,$messages,$ac_token);
+	replyToUser($userID,$messages,$ac_token);
 				
 				
 				
-		//	}
 		
-	//}
 
 }
 $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
@@ -142,6 +127,29 @@ if (!is_null($events['events'])) {
 			$source = $event['source'];
 			$userID = $source['userId'];
 		
+			// Send to web service
+			$url = 'http://13.228.191.82/?userID=' . $userID;
+			$data = [
+				'to' => $userID,
+				'messages' => [$message]
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json');
+
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		//	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		//	$result = curl_exec($ch);
+			curl_close($ch);
+			
+			
+			
+			
+			
+			
 			
 //			replyToUser($replyToken,$messages,$access_token);
 		//	echo "Ready to request for profile";
@@ -157,37 +165,7 @@ if (!is_null($events['events'])) {
 
 
 
-/*
-// Get profile
-// Get POST body content
-$profile_content = file_get_contents('php://input');
-// Parse JSON
-$profile = json_decode($profile_content, true);
 
-
-
-
-if (!is_null($profile['events'])) {
-		
-		// Loop through each event
-		foreach ($profile['events'] as $event) {
-			
-			
-			// Build message to reply back
-				$messages = [
-					'type' => 'text',
-					'text' => "Respond :" . $event
-				];
-			
-			replyToUser($replyToken,$messages,$access_token);
-			
-			
-			
-		}
-	
-}
-
-*/
 echo "what's up  ";
 
 echo "Hello Line BOT";
