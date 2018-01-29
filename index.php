@@ -127,16 +127,15 @@ if (!is_null($events['events'])) {
 // Get POST body content
 $profile_content = file_get_contents('php://input');
 // Parse JSON
-$profile_events = json_decode($profile_content, true);
+$profile = json_decode($profile_content, true);
 
 
 
-if (!is_null($events['events'])) {
+
+if (!is_null($profile['events'])) {
 		
 		// Loop through each event
-		foreach ($events['events'] as $event) {
-			
-			
+		foreach ($profile['events'] as $event) {
 			
 			
 			// Build message to reply back
