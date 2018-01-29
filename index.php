@@ -111,7 +111,7 @@ if (!is_null($events['events'])) {
 			$replyToken = $event['replyToken'];
 			
 			// Get userID and userName
-			
+			$source = $event['source'];
 			$userID = $source['userid'];
 			
 			echo "Ready to request for profile";
