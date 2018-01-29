@@ -77,7 +77,7 @@ function requestForProfile($ac_token,$userID){
 	
 	// Make a GET request to Messaging API to get profile
 	$url = 'https://api.line.me/v2/bot/profile/' . $userID;
-	$headers = 'Authorization: Bearer ' . $ac_token;
+	$headers = array('Authorization: Bearer ' . $ac_token);
 	
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
