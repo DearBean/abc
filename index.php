@@ -50,7 +50,7 @@ if (!is_null($events['events'])) {
 }
 echo "Hello Line BOT";
 */
-/*
+
 function replyToUser($userID,$message,$ac_token){
 	
 	// Make a POST Request to Messaging API to reply to sender
@@ -132,7 +132,23 @@ if (!is_null($events['events'])) {
 			
 			
 			
-			
+			$data = array(
+				'userID' => "aaa",
+				'userName' => 'bbb'
+			);
+			# Create a connection
+			$url = 'http://13.228.191.82/';
+			$ch = curl_init($url);
+			# Form data string
+			$postString = http_build_query($data, '', '&');
+			# Setting our options
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			# Get the response
+			$response = curl_exec($ch);
+			curl_close($ch);
+
 			
 			
 			
@@ -141,7 +157,7 @@ if (!is_null($events['events'])) {
 		//	echo "Ready to request for profile";
 			// Request for profile
 			requestForProfile($access_token,$userID);
-			
+		/*	
 			
 			$url = 'http://localhost:8080/';
 			$data = [
@@ -158,28 +174,12 @@ if (!is_null($events['events'])) {
 		//	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		//	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
-			curl_close($ch);
+			curl_close($ch);*/
 		}
 	
 }
 
-*/
-$data = array(
-    'userID' => "aaa",
-	'userName' => 'bbb'
-);
-# Create a connection
-$url = 'http://13.228.191.82/';
-$ch = curl_init($url);
-# Form data string
-$postString = http_build_query($data, '', '&');
-# Setting our options
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-# Get the response
-$response = curl_exec($ch);
-curl_close($ch);
+
 
 
 
