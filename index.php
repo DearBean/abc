@@ -48,7 +48,7 @@ if (!is_null($events['events'])) {
 		}
 	
 }
-echo "Hello Line BOT";
+//echo "Hello Line BOT";
 /*
 function replyToUser($reToken,$message,$ac_token){
 	
