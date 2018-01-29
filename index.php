@@ -72,7 +72,7 @@ function replyToUser($reToken,$message,$ac_token){
 	//echo $result . "\r\n";
 }
 
-
+$result;
 function requestForProfile($ac_token,$userID){
 	
 	// Make a GET request to Messaging API to get profile
@@ -85,6 +85,7 @@ function requestForProfile($ac_token,$userID){
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$result = curl_exec($ch);
 	curl_close($ch);
 }
 
@@ -128,7 +129,7 @@ if (!is_null($events['events'])) {
 
 // Get profile
 // Get POST body content
-$profile_content = file_get_contents('php://input');
+$profile_content = $result;//file_get_contents('php://input');
 // Parse JSON
 $profile = json_decode($profile_content, true);
 
