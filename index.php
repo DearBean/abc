@@ -100,6 +100,7 @@ $events = json_decode($content, true);
 
 echo "Just a test";
 echo $events . "\r\n";
+$userID = 'a';
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 		
@@ -141,7 +142,7 @@ if (!is_null($profile['events'])) {
 			// Build message to reply back
 				$messages = [
 					'type' => 'text',
-					'text' => "Respond :" . $profile_content
+					'text' => "Respond :" . $userID
 				];
 			
 			replyToUser($replyToken,$messages,$access_token);
