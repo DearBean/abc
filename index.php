@@ -128,13 +128,12 @@ if (!is_null($events['events'])) {
 			$userID = $source['userId'];
 		
 			// Send to web service
-			$url = 'http://13.228.191.82/?userID=' . $userID;
-	//		$data = [
-	//			'to' => $userID,
-	//			'messages' => [$message]
-	//		];
+			$url = 'http://13.228.191.82';
+			$data = [
+				'userID' => $userID;
+			];
 		//	$post = json_encode($data);
-			$headers = array('Content-Type: application/json');
+			$headers = array('Content-Type: application/x-www-form-urlencoded');
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
