@@ -72,7 +72,7 @@ function replyToUser($reToken,$message,$ac_token){
 	//echo $result . "\r\n";
 }
 
-$result = 'a';
+
 function requestForProfile($ac_token,$userID){
 	
 	// Make a GET request to Messaging API to get profile
@@ -85,7 +85,7 @@ function requestForProfile($ac_token,$userID){
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-	$result = curl_exec($ch);
+
 	curl_close($ch);
 }
 
@@ -127,9 +127,36 @@ if (!is_null($events['events'])) {
 	
 }
 
+url = "http://localhost:8080/";
+
+$data = array(
+  'userID' => $userID
+);
+
+$content = json_encode($data);
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_HEADER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HTTPHEADER,
+  array("Content-type: application/json"));
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+
+$json_response = curl_exec($curl);
+
+$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+curl_close($curl);
+
+$response = json_decode($json_response, true);
+
+
+
+
+/*
 // Get profile
 // Get POST body content
-$profile_content = $result; //file_get_contents('php://input');
+$profile_content = file_get_contents('php://input');
 // Parse JSON
 $profile = json_decode($profile_content, true);
 
@@ -156,7 +183,7 @@ if (!is_null($profile['events'])) {
 	
 }
 
-
+*/
 echo "what's up  ";
 
 echo "Hello Line BOT";
