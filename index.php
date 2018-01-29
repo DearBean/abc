@@ -50,12 +50,12 @@ if (!is_null($events['events'])) {
 }
 echo "Hello Line BOT";
 */
-function replyToUser($reToken,$message,$ac_token){
+function replyToUser($userID,$message,$ac_token){
 	
 	// Make a POST Request to Messaging API to reply to sender
-	$url = 'https://api.line.me/v2/bot/message/reply';
+	$url = 'https://api.line.me/v2/bot/message/push';
 	$data = [
-		'replyToken' => $reToken,
+		'to' => $userID,
 		'messages' => [$message]
 	];
 	$post = json_encode($data);
@@ -85,11 +85,38 @@ function requestForProfile($ac_token,$userID){
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-
+	$response = curl_exec($ch);
 	curl_close($ch);
+	// Get profile
+	// Get POST body content
+	//$profile_content = file_get_contents('php://input');
+	// Parse JSON
+	//$profile = json_decode($profile_content, true);
+
+
+
+
+	//if (!is_null($profile['events'])) {
+			
+			// Loop through each event
+		//	foreach ($profile['events'] as $event) {
+				
+				
+				// Build message to reply back
+					$messages = [
+						'type' => 'text',
+						'text' => "Respond :" . $response
+					];
+				
+				replyToUser($userID,$messages,$ac_token);
+				
+				
+				
+		//	}
+		
+	//}
+
 }
-
-
 $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
@@ -117,7 +144,7 @@ if (!is_null($events['events'])) {
 		
 			
 //			replyToUser($replyToken,$messages,$access_token);
-			echo "Ready to request for profile";
+		//	echo "Ready to request for profile";
 			// Request for profile
 			requestForProfile($access_token,$userID);
 			
@@ -126,29 +153,6 @@ if (!is_null($events['events'])) {
 		}
 	
 }
-
-url = "http://localhost:8080/";
-
-$data = array(
-  'userID' => $userID
-);
-
-$content = json_encode($data);
-$curl = curl_init($url);
-curl_setopt($curl, CURLOPT_HEADER, false);
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($curl, CURLOPT_HTTPHEADER,
-  array("Content-type: application/json"));
-curl_setopt($curl, CURLOPT_POST, true);
-curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
-
-$json_response = curl_exec($curl);
-
-$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-curl_close($curl);
-
-$response = json_decode($json_response, true);
 
 
 
