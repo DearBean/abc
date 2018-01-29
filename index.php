@@ -151,5 +151,5 @@ if (!is_null($events['events'])) {
 
 
 
-
+echo $profile_events;
 echo "Hello Line BOT";
