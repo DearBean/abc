@@ -1,5 +1,5 @@
 <?php
-/*function replyToUser($reToken,$message,$ac_token){
+function replyToUser($reToken,$message,$ac_token){
 	
 	// Make a POST Request to Messaging API to reply to sender
 	$url = 'https://api.line.me/v2/bot/message/reply';
@@ -48,7 +48,8 @@ if (!is_null($events['events'])) {
 		}
 	
 }
-echo "Hello Line BOT";*/
+echo "Hello Line BOT";
+/*
 function replyToUser($reToken,$message,$ac_token){
 	
 	// Make a POST Request to Messaging API to reply to sender
@@ -152,4 +153,4 @@ if (!is_null($events['events'])) {
 
 echo "what's up  ";
 echo $profile_events;
-echo "Hello Line BOT";
+echo "Hello Line BOT";*/
