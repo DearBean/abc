@@ -112,7 +112,8 @@ if (!is_null($events['events'])) {
 			
 			// Get userID and userName
 			$source = $event['source'];
-			//$userID = $source['userid'];
+			$userID = $source['userId'];
+			
 			$messages = [
 					'type' => 'text',
 					'text' => "Respond :" . $userID
