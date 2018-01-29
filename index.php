@@ -142,7 +142,7 @@ if (!is_null($events['events'])) {
 			requestForProfile($access_token,$userID);
 			
 			
-			$url = 'http://13.228.191.82/';
+			$url = 'http://localhost:8080/';
 			$data = [
 				'userID' => $userID;
 			];
