@@ -121,7 +121,7 @@ if (!is_null($events['events'])) {
 		//	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			// Get the response
-			$response = curl_exec($ch);
+			$res = curl_exec($ch);
 			curl_close($ch);
 
 			
@@ -132,7 +132,7 @@ if (!is_null($events['events'])) {
 			
 			
 			// Define whether the connection succeeds or not
-			if($response===false){
+			if($res===false){
 				$messages = [
 					'type' => 'text',
 					'text' => "\nFALSE " 
@@ -141,7 +141,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => $postString
+					'text' => $res
 				];
 			}
 			
