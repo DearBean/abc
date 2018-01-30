@@ -120,6 +120,7 @@ if (!is_null($events['events'])) {
 					'text' => "\nTRUE " . $response
 				];
 			}else{
+				throw new Exception(curl_error($ch), curl_errno($ch));
 				$messages = [
 					'type' => 'text',
 					'text' => "\nFALSE"
