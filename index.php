@@ -88,8 +88,7 @@ if (!is_null($events['events'])) {
 			// succeeds, I will send userName later.
 			
 			$data = array(
-				'userID' => $userID,
-				'userName' => 'bbb'
+				'userID' => $userID
 			);
 
 			
