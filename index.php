@@ -151,7 +151,11 @@ if (!is_null($events['events'])) {
 			curl_close($ch);*/
 
 			
-			
+			$messages =[
+				'type' => 'text',
+				'text' => "   This is a test"
+			];
+			replyToUser($userID,$messages,$acccess_token);
 			
 			
 //			replyToUser($replyToken,$messages,$access_token);
@@ -172,11 +176,7 @@ if (!is_null($events['events'])) {
 			}
 			
 		*/
-			$messages =[
-				'type' => 'text',
-				'text' => "   This is a test"
-			];
-			replyToUser($userID,$messages,$acccess_token);
+			
 			
 			
 		/*	
