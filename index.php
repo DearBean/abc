@@ -105,9 +105,9 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "\nch FALSE"
+					'text' => "\nch FALSE" . curl_errno($ch)
 				];
-				echo curl_error($ch);
+				
 			}
 			
 			// Send the return value of curl connection to the user by messaging	
