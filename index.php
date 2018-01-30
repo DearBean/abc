@@ -141,7 +141,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "\nTRUE " . $response . "acc"
+					'text' => "\nTRUE " . "acc"
 				];
 			}
 			
