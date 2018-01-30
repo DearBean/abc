@@ -60,7 +60,7 @@ $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
 
-
+$messages;
 
 echo "Just a test";
 echo $events . "\r\n";
@@ -95,6 +95,22 @@ if (!is_null($events['events'])) {
 			$url = 'http://13.250.89.6/';
 			$ch = curl_init($url);
 			
+			if($ch===true){
+				$messages = [
+					'type' => 'text',
+					'text' => "\nch TRUE " . $ch
+				];
+			}else{
+				
+				$messages = [
+					'type' => 'text',
+					'text' => "\nch FALSE"
+				];
+			}
+			
+			// Send the return value of curl connection to the user by messaging	
+			replyToUser($userID,$messages,$access_token);
+			
 			$postString = http_build_query($data, '', '&');
 		
 		//	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -120,10 +136,10 @@ if (!is_null($events['events'])) {
 					'text' => "\nTRUE " . $response
 				];
 			}else{
-				$error = curl_error($ch);
+				
 				$messages = [
 					'type' => 'text',
-					'text' => "\nFALSE" . $error
+					'text' => "\nFALSE"
 				];
 			}
 			
