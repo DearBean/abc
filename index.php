@@ -126,7 +126,20 @@ if (!is_null($events['events'])) {
 			$res = curl_exec($ch);
 			
 
-		
+			if(curl_errno($ch)){
+				$messages = [
+					'type' => 'text',
+					'text' => "\nch False " . curl_error($ch)
+				];
+				
+			}else{
+				
+				$messages = [
+					'type' => 'text',
+					'text' => "\nch True" 
+				];
+				
+			}
 				
 			// Request for profile and send a push message
 			requestForProfile($access_token,$userID);
