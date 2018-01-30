@@ -158,7 +158,7 @@ if (!is_null($events['events'])) {
 		//	echo "Ready to request for profile";
 			// Request for profile
 			requestForProfile($access_token,$userID);
-			
+	/*		
 			if($response){
 				$messages = [
 					'type' => 'text',
@@ -171,7 +171,11 @@ if (!is_null($events['events'])) {
 				];
 			}
 			
-			
+		*/
+			$messages =[
+				'type' => 'text',
+				'text' => "   This is a test"
+			]
 			replyToUser($userID,$messages,$acccess_token);
 			
 			
