@@ -173,12 +173,12 @@ if (!is_null($events['events'])) {
 				];
 			}
 			
-		
+		/*
 			$messages = [
 				'type' => 'text',
 				'text' => "Respond :" . $response
 			];
-						
+			*/			
 			replyToUser($userID,$messages,$access_token);
 			
 			
