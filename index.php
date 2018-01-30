@@ -132,7 +132,7 @@ if (!is_null($events['events'])) {
 			
 		//	$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
-			$data = array(
+		/*	$data = array(
 				'userID' => $userID,
 				'userName' => 'bbb'
 			);
@@ -148,7 +148,7 @@ if (!is_null($events['events'])) {
 		//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			# Get the response
 			$response = curl_exec($ch);
-			curl_close($ch);
+			curl_close($ch);*/
 
 			
 			
