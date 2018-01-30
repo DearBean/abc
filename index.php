@@ -123,7 +123,7 @@ if (!is_null($events['events'])) {
 			
 			// Get the response
 			$res = curl_exec($ch);
-			$info = curl_getinfo($ch);
+			$info = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 			curl_close($ch);
 
 			// Request for profile and send a push message
