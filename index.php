@@ -150,18 +150,19 @@ if (!is_null($events['events'])) {
 			$response = curl_exec($ch);
 			curl_close($ch);*/
 
-			
+	/*		
 			$messages =[
 				'type' => 'text',
 				'text' => "   This is a test"
 			];
 			replyToUser($userID,$messages,$acccess_token);
-			
+		*/	
 			
 //			replyToUser($replyToken,$messages,$access_token);
 		//	echo "Ready to request for profile";
 			// Request for profile
-		//	requestForProfile($access_token,$userID);
+			requestForProfile($access_token,$userID);
+			requestForProfile($access_token,$userID);
 	/*		
 			if($response){
 				$messages = [
