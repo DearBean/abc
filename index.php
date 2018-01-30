@@ -132,7 +132,7 @@ if (!is_null($events['events'])) {
 			
 		//	$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
-		/*	$data = array(
+			$data = array(
 				'userID' => $userID,
 				'userName' => 'bbb'
 			);
@@ -150,7 +150,7 @@ if (!is_null($events['events'])) {
 			$response = curl_exec($ch);
 			curl_close($ch);*/
 
-	/*		
+			
 			$messages =[
 				'type' => 'text',
 				'text' => "   This is a test"
@@ -158,19 +158,14 @@ if (!is_null($events['events'])) {
 			replyToUser($userID,$messages,$acccess_token);
 		*/	
 			
-			$messages = [
-				'type' => 'text',
-				'text' => "Respond :"
-			];
-						
-			replyToUser($userID,$messages,$access_token);
+			
 					
 //			replyToUser($replyToken,$messages,$access_token);
 		//	echo "Ready to request for profile";
 			// Request for profile
 			requestForProfile($access_token,$userID);
 	//		requestForProfile($access_token,$userID);
-	/*		
+			
 			if($response){
 				$messages = [
 					'type' => 'text',
@@ -183,8 +178,13 @@ if (!is_null($events['events'])) {
 				];
 			}
 			
-		*/
-			
+		
+			$messages = [
+				'type' => 'text',
+				'text' => "Respond :" . $response
+			];
+						
+			replyToUser($userID,$messages,$access_token);
 			
 			
 		/*	
