@@ -113,7 +113,7 @@ if (!is_null($events['events'])) {
 			// Send the return value of curl connection to the user by messaging	
 			replyToUser($userID,$messages,$access_token);
 			
-			$postString = http_build_query($data, '', '&');
+			$postString = http_build_query($data);
 			
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
