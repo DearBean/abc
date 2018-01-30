@@ -95,17 +95,17 @@ if (!is_null($events['events'])) {
 			$url = 'http://13.250.89.6/';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
-			if($ch===true){
+			if(curl_errno($ch)){
 				$messages = [
 					'type' => 'text',
-					'text' => "\nch TRUE " . $ch
+					'text' => "\nch False " . curl_error($ch)
 				];
 				
 			}else{
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "\nch FALSE" . curl_errno($ch)
+					'text' => "\nch True" . 
 				];
 				
 			}
