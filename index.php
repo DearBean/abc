@@ -114,7 +114,7 @@ if (!is_null($events['events'])) {
 			replyToUser($userID,$messages,$access_token);
 			
 			$postString = http_build_query($data, '', '&');
-		
+			
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
@@ -141,7 +141,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "\nTRUE " .$response
+					'text' => "\nTRUE " . $response . "acc"
 				];
 			}
 			
