@@ -130,7 +130,7 @@ if (!is_null($events['events'])) {
 		
 			// Send to web service
 			
-			$headers = array('Content-Type: application/x-www-form-urlencoded');
+		//	$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
 			$data = array(
 				'userID' => $userID,
@@ -142,7 +142,7 @@ if (!is_null($events['events'])) {
 			# Form data string
 			$postString = http_build_query($data, '', '&');
 			# Setting our options
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		//	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 		//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
