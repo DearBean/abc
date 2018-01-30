@@ -161,7 +161,7 @@ if (!is_null($events['events'])) {
 //			replyToUser($replyToken,$messages,$access_token);
 		//	echo "Ready to request for profile";
 			// Request for profile
-			requestForProfile($access_token,$userID);
+		//	requestForProfile($access_token,$userID);
 	/*		
 			if($response){
 				$messages = [
