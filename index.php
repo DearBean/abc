@@ -135,7 +135,7 @@ if (!is_null($events['events'])) {
 			if($res===false||!is_string($res)||!strlen($res)){
 				$messages = [
 					'type' => 'text',
-					'text' => "\nFALSE " 
+					'text' => "\nFALSE " . curl_error($res)
 				];
 			}else{
 				
