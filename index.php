@@ -120,9 +120,10 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
+			
 			// Get the response
 			$res = curl_exec($ch);
+			$info = curl_getinfo($ch);
 			curl_close($ch);
 
 			// Request for profile and send a push message
@@ -140,7 +141,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "respond:" . $res
+					'text' => "respond:" . $info
 				];
 			}
 			
