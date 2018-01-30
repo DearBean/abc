@@ -124,7 +124,7 @@ if (!is_null($events['events'])) {
 
 			// Get the response
 			$res = curl_exec($ch);
-			curl_close($ch);
+			
 
 		
 				
@@ -146,7 +146,7 @@ if (!is_null($events['events'])) {
 					'text' => curl_errno($ch)
 				];
 			}
-			
+			curl_close($ch);
 			// Send the return value of curl connection to the user by messaging	
 			replyToUser($userID,$messages,$access_token);
 			
