@@ -132,16 +132,16 @@ if (!is_null($events['events'])) {
 			
 			
 			// Define whether the connection succeeds or not
-			if($response===true){
+			if(curl_errno($response)){
 				$messages = [
 					'type' => 'text',
-					'text' => "\nTRUE " . $response
+					'text' => "\nFALSE " . curl_error($ch)
 				];
 			}else{
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "\nFALSE"
+					'text' => "\nTRUE " . $response
 				];
 			}
 			
