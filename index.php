@@ -148,15 +148,10 @@ if (!is_null($events['events'])) {
 		//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			# Get the response
 			$response = curl_exec($ch);
-			curl_close($ch);*/
+			curl_close($ch);
 
 			
-			$messages =[
-				'type' => 'text',
-				'text' => "   This is a test"
-			];
-			replyToUser($userID,$messages,$acccess_token);
-		*/	
+				
 			
 			
 					
