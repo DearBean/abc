@@ -144,7 +144,7 @@ if (!is_null($events['events'])) {
 			# Setting our options
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			# Get the response
 			$response = curl_exec($ch);
 			curl_close($ch);
@@ -158,11 +158,18 @@ if (!is_null($events['events'])) {
 			// Request for profile
 			requestForProfile($access_token,$userID);
 			
+			if($response){
+				$messages = [
+					'type' => 'text',
+					'text' => "\nTRUE"
+				];
+			}else{
+				$messages = [
+					'type' => 'text',
+					'text' => "\nFALSE"
+				];
+			}
 			
-			$messages = [
-				'type' => 'text',
-				'text' => "\nReturn Value :" . $response
-			];
 			
 			replyToUser($userID,$messages,$acccess_token);
 			
