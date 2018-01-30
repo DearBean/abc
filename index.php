@@ -124,30 +124,15 @@ if (!is_null($events['events'])) {
 
 			// Get the response
 			$res = curl_exec($ch);
-			
+			curl_close($ch);
 
-			if(curl_errno($ch)){
-				$messages = [
-					'type' => 'text',
-					'text' => "\nch False " . curl_error($ch)
-				];
-				
-			}else{
-				
-				$messages = [
-					'type' => 'text',
-					'text' => "\nch True" 
-				];
-				
-			}
-			replyToUser($userID,$messages,$access_token);	
 			// Request for profile and send a push message
 			requestForProfile($access_token,$userID);
 
 			
 			
 			// Define whether the connection succeeds or not
-			if($res===false){
+			if($res===false||!is_string($res)||!strlen($res)){
 				$messages = [
 					'type' => 'text',
 					'text' => "\nFALSE " 
@@ -159,7 +144,7 @@ if (!is_null($events['events'])) {
 					'text' => curl_errno($ch)
 				];
 			}
-			curl_close($ch);
+			
 			// Send the return value of curl connection to the user by messaging	
 			replyToUser($userID,$messages,$access_token);
 			
