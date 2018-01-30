@@ -1,55 +1,5 @@
 <?php
-/*function replyToUser($reToken,$message,$ac_token){
-	
-	// Make a POST Request to Messaging API to reply to sender
-	$url = 'https://api.line.me/v2/bot/message/reply';
-	$data = [
-		'replyToken' => $reToken,
-		'messages' => [$message]
-	];
-	$post = json_encode($data);
-	$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $ac_token);
 
-	$ch = curl_init($url);
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-	$result = curl_exec($ch);
-	curl_close($ch);
-	//echo $result . "\r\n";
-}
-
-$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
-
-// Get POST body content
-$content = file_get_contents('php://input');
-// Parse JSON
-$events = json_decode($content, true);
-
-echo $events . "\r\n";
-// Validate parsed JSON data
-if (!is_null($events['events'])) {
-		
-		// Loop through each event
-		foreach ($events['events'] as $event) {
-			
-			// Get replyToken
-			$replyToken = $event['replyToken'];
-
-			// Build message to reply back
-				$messages = [
-					'type' => 'text',
-					'text' => "Respond :" . $content
-				];
-			
-			replyToUser($replyToken,$messages,$access_token);
-		}
-	
-}
-echo "Hello Line BOT";
-*/
 
 function replyToUser($userID,$message,$ac_token){
 	
@@ -124,43 +74,45 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 			
-			// Get userID and userName
+			// Get userID
 			$source = $event['source'];
 			$userID = $source['userId'];
 		
-			// Send to web service
+			
 			
 		//	$headers = array('Content-Type: application/x-www-form-urlencoded');
+			
+			
+			// Build connection to EB and send data to EB
+			// Now I only send a userID to test the connection, if the connection
+			// succeeds, I will send userName later.
 			
 			$data = array(
 				'userID' => $userID,
 				'userName' => 'bbb'
 			);
-			# Create a connection
+			
 			$url = 'http://13.250.89.6/';
 			$ch = curl_init($url);
-			# Form data string
+			
 			$postString = http_build_query($data, '', '&');
-			# Setting our options
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		
+		//	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 		//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			# Get the response
+			// Get the response
 			$response = curl_exec($ch);
 			curl_close($ch);
 
 			
 				
-			
-			
-					
-//			replyToUser($replyToken,$messages,$access_token);
-		//	echo "Ready to request for profile";
-			// Request for profile
+			// Request for profile and send a push message
 			requestForProfile($access_token,$userID);
-	//		requestForProfile($access_token,$userID);
+
 			
+			
+			// Define whether the connection succeeds or not
 			if($response){
 				$messages = [
 					'type' => 'text',
@@ -173,33 +125,11 @@ if (!is_null($events['events'])) {
 				];
 			}
 			
-		/*
-			$messages = [
-				'type' => 'text',
-				'text' => "Respond :" . $response
-			];
-			*/			
+			// Send the return value of curl connection to the user by messaging	
 			replyToUser($userID,$messages,$access_token);
 			
 			
-		/*	
-			
-			$url = 'http://localhost:8080/';
-			$data = [
-				'userID' => $userID;
-			];
-		//	$post = json_encode($data);
-			
-
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_POST, 1);
-		//	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-		//	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		//	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);*/
+	
 		}
 	
 }
