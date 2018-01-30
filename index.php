@@ -142,7 +142,7 @@ if (!is_null($events['events'])) {
 			# Form data string
 			$postString = http_build_query($data, '', '&');
 			# Setting our options
-		//	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 		//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -175,7 +175,7 @@ if (!is_null($events['events'])) {
 			$messages =[
 				'type' => 'text',
 				'text' => "   This is a test"
-			]
+			];
 			replyToUser($userID,$messages,$acccess_token);
 			
 			
