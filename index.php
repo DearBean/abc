@@ -92,7 +92,7 @@ if (!is_null($events['events'])) {
 			);
 
 			
-			$url = 'http://13.250.89.6/';
+			$url = 'http://localhost/test.php';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			if(curl_errno($ch)){
