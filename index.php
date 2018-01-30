@@ -91,7 +91,7 @@ if (!is_null($events['events'])) {
 				'userID' => $userID,
 				'userName' => 'bbb'
 			);
-			$curl_log = fopen("curl.txt", 'rw');
+
 			
 			$url = 'http://13.250.89.6/';
 			$ch = curl_init();
@@ -119,18 +119,14 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-		//	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_VERBOSE, 1);
-			curl_setopt($ch, CURLOPT_STDERR, $curl_log);
+
 			// Get the response
 			$res = curl_exec($ch);
 			curl_close($ch);
 
-			rewind($curl_log);
-			$output = fread($curl_log, 2048);
-			echo "<pre>". print_r($output, 1). "</pre>";
-			fclose($curl_log);
+		
 				
 			// Request for profile and send a push message
 			requestForProfile($access_token,$userID);
@@ -147,7 +143,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => $res
+					'text' => curl_errno($res)
 				];
 			}
 			
