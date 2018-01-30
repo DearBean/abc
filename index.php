@@ -135,13 +135,13 @@ if (!is_null($events['events'])) {
 			if($response===false){
 				$messages = [
 					'type' => 'text',
-					'text' => "\nFALSE " . curl_error($ch)
+					'text' => "\nFALSE " 
 				];
 			}else{
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "\nTRUE " . $response
+					'text' => "\nTRUE " 
 				];
 			}
 			
