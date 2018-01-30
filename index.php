@@ -130,7 +130,7 @@ if (!is_null($events['events'])) {
 		
 			// Send to web service
 			
-			
+			$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
 			$data = array(
 				'userID' => $userID,
@@ -142,6 +142,7 @@ if (!is_null($events['events'])) {
 			# Form data string
 			$postString = http_build_query($data, '', '&');
 			# Setting our options
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 		//	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -181,7 +182,7 @@ if (!is_null($events['events'])) {
 				'userID' => $userID;
 			];
 		//	$post = json_encode($data);
-		//	$headers = array('Content-Type: application/x-www-form-urlencoded');
+			
 
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_POST, 1);
