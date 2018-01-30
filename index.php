@@ -93,8 +93,8 @@ if (!is_null($events['events'])) {
 			);
 			
 			$url = 'http://13.250.89.6/';
-			$ch = curl_init($url);
-			
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
 			if($ch===true){
 				$messages = [
 					'type' => 'text',
