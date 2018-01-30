@@ -137,7 +137,7 @@ if (!is_null($events['events'])) {
 				'userName' => 'bbb'
 			);
 			# Create a connection
-			$url = 'http://13.228.191.82/';
+			$url = 'http://13.250.89.6/';
 			$ch = curl_init($url);
 			# Form data string
 			$postString = http_build_query($data, '', '&');
@@ -157,6 +157,16 @@ if (!is_null($events['events'])) {
 		//	echo "Ready to request for profile";
 			// Request for profile
 			requestForProfile($access_token,$userID);
+			
+			
+			$messages = [
+				'type' => 'text',
+				'text' => "\nReturn Value :" . $response
+			];
+			
+			replyToUser($userID,$messages,$acccess_token);
+			
+			
 		/*	
 			
 			$url = 'http://localhost:8080/';
