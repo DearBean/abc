@@ -141,7 +141,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => curl_errno($ch)
+					'text' => "respond:" . $res
 				];
 			}
 			
