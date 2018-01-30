@@ -113,7 +113,7 @@ if (!is_null($events['events'])) {
 			
 			
 			// Define whether the connection succeeds or not
-			if($response){
+			if($response===true){
 				$messages = [
 					'type' => 'text',
 					'text' => "\nTRUE"
