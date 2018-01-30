@@ -140,7 +140,7 @@ if (!is_null($events['events'])) {
 				];
 				
 			}
-				
+			replyToUser($userID,$messages,$access_token);	
 			// Request for profile and send a push message
 			requestForProfile($access_token,$userID);
 
