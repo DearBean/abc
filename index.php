@@ -92,7 +92,7 @@ if (!is_null($events['events'])) {
 			);
 
 			
-			$url = 'http://localhost/test.php';
+			$url = '13.250.89.6';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			if(curl_errno($ch)){
@@ -137,12 +137,14 @@ if (!is_null($events['events'])) {
 					'type' => 'text',
 					'text' => "\nFALSE " . curl_errno($res)
 				];
+				echo $messages;
 			}else{
 				
 				$messages = [
 					'type' => 'text',
 					'text' => "respond:" . $info
 				];
+				echo $messages;
 			}
 			
 			// Send the return value of curl connection to the user by messaging	
