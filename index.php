@@ -88,8 +88,18 @@ if (!is_null($events['events'])) {
 			// Get userID
 			$source = $event['source'];
 			$userID = $source['userId'];
+			
+			// Request for profile and send a push message
+			requestForProfile($access_token,$userID);
+
 		
-			echo " check ";
+			include 'insertionCount.php';
+			
+			if(getCount()===1){
+				continue;
+			}else{
+				setCount();
+			}
 			
 			$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
@@ -137,9 +147,7 @@ if (!is_null($events['events'])) {
 			$info = curl_getinfo($ch,CURLINFO_EFFECTIVE_URL);
 			curl_close($ch);
 
-			// Request for profile and send a push message
-			requestForProfile($access_token,$userID);
-
+			
 			
 			
 			// Define whether the connection succeeds or not
