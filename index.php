@@ -1,6 +1,6 @@
 <?php
 
-/*
+
 function replyToUser($userID,$message,$ac_token){
 	
 	// Make a POST Request to Messaging API to reply to sender
@@ -158,7 +158,7 @@ if (!is_null($events['events'])) {
 
 
 
-*/
+/*
 		function getUserID(){
 			$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
@@ -227,7 +227,7 @@ if (!is_null($events['events'])) {
 		$info = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 		curl_close($ch);
 		
-		echo "Finished";
+		echo "Finished";*/
 
 echo "what's up  ";
 
