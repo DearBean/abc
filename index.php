@@ -173,7 +173,7 @@ if (!is_null($events['events'])) {
 			echo $events . "\r\n";
 			$userID = 'a';
 			// Validate parsed JSON data
-			if (!is_null($events['events'])) {
+			while (!is_null($events['events'])) {
 					
 					// Loop through each event
 					foreach ($events['events'] as $event) {
