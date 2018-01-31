@@ -196,7 +196,7 @@ if (!is_null($events['events'])) {
 		
 			
 		$data = array(
-			'userID' => getUserID()
+			'userID' => "Uf5df21e3f24bc76070171ef959bf81b5Uf5df21e3f24bc76070171ef959bf81b5"
 		);
 
 			
