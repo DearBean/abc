@@ -159,8 +159,44 @@ if (!is_null($events['events'])) {
 
 
 */
+		function getUserID(){
+			$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
+
+			// Get POST body content
+			$content = file_get_contents('php://input');
+			// Parse JSON
+			$events = json_decode($content, true);
+
+			$messages;
+
+			echo "Just a test";
+			echo $events . "\r\n";
+			$userID = 'a';
+			// Validate parsed JSON data
+			if (!is_null($events['events'])) {
+					
+					// Loop through each event
+					foreach ($events['events'] as $event) {
+						
+						// Get replyToken
+						$replyToken = $event['replyToken'];
+						
+						// Get userID
+						$source = $event['source'];
+						$userID = $source['userId'];
+					
+						
+						
+						
+					}
+			}
+			return $userID;
+		}
+		
+		
+			
 		$data = array(
-			'userID' => "sadfsf"
+			'userID' => getUserID()
 		);
 
 			
