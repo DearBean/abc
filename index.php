@@ -1,6 +1,6 @@
 <?php
 
-
+//$displayName;
 function replyToUser($userID,$message,$ac_token){
 	
 	// Make a POST Request to Messaging API to reply to sender
@@ -44,8 +44,19 @@ function requestForProfile($ac_token,$userID){
 	$messages = [
 		'type' => 'text',
 		'text' => "Respond :" . $response
-	];
-				
+	];/*
+	$displayName = $response["displayName"];	
+	if($response["pictureUrl"]!=NULL){
+		$pictureUrl = $response["pictureUrl"];
+	}else{
+		$pictureUrl = NULL;
+	}
+	if($response["statusMessage"]!=NULL){
+		$statusMessage = $response["statusMessage"];
+	}else{
+		$statusMessage = NULL;
+	}
+	*/
 	replyToUser($userID,$messages,$ac_token);
 				
 				
@@ -78,7 +89,7 @@ if (!is_null($events['events'])) {
 			$source = $event['source'];
 			$userID = $source['userId'];
 		
-			
+			echo " check ";
 			
 			$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
