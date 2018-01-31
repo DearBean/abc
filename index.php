@@ -196,7 +196,7 @@ if (!is_null($events['events'])) {
 		
 			
 		$data = array(
-			'userID' => getUserID()
+			'userID' => "user1";
 		);
 
 			
