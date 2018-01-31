@@ -92,7 +92,7 @@ if (!is_null($events['events'])) {
 			// Request for profile and send a push message
 			requestForProfile($access_token,$userID);
 
-		
+		/*
 			include 'insertionCount.php';
 			
 			if(getCount()===1){
@@ -100,7 +100,7 @@ if (!is_null($events['events'])) {
 			}else{
 				setCount();
 			}
-			
+			*/
 			$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
 			
@@ -161,7 +161,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "respond:" . getCount()
+					'text' => "respond:" . $res
 				];
 				echo $messages;
 			}
