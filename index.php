@@ -40,7 +40,8 @@ function requestForProfile($ac_token,$userID){
 	curl_close($ch);
 	
 	if(is_array($response)) $response = 1;
-	else $response = 0;
+	else if(is_string($response))$response = 0;
+	else $response = 10;
 	// Build message to reply back
 	//$displayName = $response['userId'];
 	$messages = [
