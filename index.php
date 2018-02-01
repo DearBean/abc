@@ -45,12 +45,12 @@ function requestForProfile($ac_token,$userID){
 		'type' => 'text',
 		'text' => "Respond :" . $response
 	];
-	$displayName = $response["displayName"];	
+	$displayName = $response['displayName'];	
 	
 	
 	replyToUser($userID,$messages,$ac_token);
 				
-	$displayName;
+	return $displayName;
 				
 		
 
@@ -96,7 +96,8 @@ if (!is_null($events['events'])) {
 			// succeeds, I will send userName later.
 			
 			$data = array(
-				'userID' => $userID
+				'userID' => $userID,
+				'displayName' => $displayName
 			);
 
 			
