@@ -41,7 +41,7 @@ function requestForProfile($ac_token,$userID){
 	
 				
 	// Build message to reply back
-	$displayName = $response['displayName'];
+	$displayName = $response['userId'];
 	$messages = [
 		'type' => 'text',
 		'text' => "Respond :" . $displayName
