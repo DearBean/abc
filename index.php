@@ -41,11 +41,12 @@ function requestForProfile($ac_token,$userID){
 	
 				
 	// Build message to reply back
+	$displayName = $response['displayName'];
 	$messages = [
 		'type' => 'text',
-		'text' => "Respond :" . $response
+		'text' => "Respond :" . $displayName
 	];
-	$displayName = $response['displayName'];	
+		
 	
 	
 	replyToUser($userID,$messages,$ac_token);
