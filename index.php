@@ -104,7 +104,7 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "respond:" . info
+					'text' => "respond:" . $info
 					
 				];
 				echo $messages;
