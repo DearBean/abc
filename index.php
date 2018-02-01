@@ -39,12 +39,13 @@ function requestForProfile($ac_token,$userID){
 	$response = curl_exec($ch);
 	curl_close($ch);
 	
-				
+	if(is_array($response)) $response = 1;
+	else $response = 0;
 	// Build message to reply back
-	$displayName = $response['userId'];
+	//$displayName = $response['userId'];
 	$messages = [
 		'type' => 'text',
-		'text' => "Respond :" . $displayName
+		'text' => "Respond :" . $response
 	];
 		
 	
