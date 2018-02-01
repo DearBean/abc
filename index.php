@@ -39,9 +39,12 @@ function requestForProfile($ac_token,$userID){
 	$response = curl_exec($ch);
 	curl_close($ch);
 	
-	int start_pos = stripos($response, "displayName")+14;
-	int end_pos = -2;
-	$displayName = substr($response, start_pos, end_pos);
+	
+	$temp_pos = stripos($response, "displayName");
+	if($temp_pos===FALSE) exit("Unable to find the start position of displayName");
+	$start_pos = $temp_pos + 14;
+	$end_pos = -2;
+	$displayName = substr($response, $start_pos, $end_pos);
 	// Build message to reply back
 	//$displayName = $response['userId'];
 	$messages = [
