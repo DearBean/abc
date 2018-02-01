@@ -49,7 +49,7 @@ function requestForProfile($ac_token,$userID){
 	//$displayName = $response['userId'];
 	$messages = [
 		'type' => 'text',
-		'text' => "Respond :" . $displayName
+		'text' => "Respond :" . "bbbbbbb"
 	];
 		
 	
@@ -155,7 +155,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "respond:" . $res
+					'text' => "respond:" . "aaaaaa"
 				];
 				echo $messages;
 			}
