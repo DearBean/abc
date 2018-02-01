@@ -1,5 +1,5 @@
 <?php
-/*
+
 //$displayName;
 function replyToUser($userID,$message,$ac_token){
 	
@@ -43,10 +43,10 @@ function requestForProfile($ac_token,$userID){
 	$temp_pos = stripos($response, "displayName");
 	if($temp_pos===FALSE) exit("Unable to find the start position of displayName");
 	$start_pos = $temp_pos + 14;
-	if(stripos($response, "pictureUrl")==FALSE&&stripos($response, "statusMessage")==FALSE){
-		
-	}
-	$end_pos = -2;
+	if(stripos($response, "pictureUrl")===FALSE&&stripos($response, "statusMessage")===FALSE){
+		$end_pos = -2;
+	}else if(stripos($response, "pictureUrl"===FALSE)&&stripos($response, "statusMessage")!=FALSE)
+	
 	$displayName = substr($response, $start_pos, $end_pos);
 	// Build message to reply back
 	//$displayName = $response['userId'];
@@ -173,18 +173,7 @@ if (!is_null($events['events'])) {
 }
 
 
-*/
-use LINE\LINEBot\Constant\HTTPHeader;
-	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=');
-	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '0f1b60eb2192cbc28463a287a2d30382
-']);	
-	$response = $bot->getProfile('Uf5df21e3f24bc76070171ef959bf81b5');
-	if ($response->isSucceeded()) {
-		$profile = $response->getJSONDecodedBody();
-		echo $profile['displayName'];
-		echo $profile['pictureUrl'];
-		echo $profile['statusMessage'];
-	}
+
 	/*	function getUserID(){
 			$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
