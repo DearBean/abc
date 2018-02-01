@@ -49,7 +49,7 @@ function requestForProfile($ac_token,$userID){
 	//$displayName = $response['userId'];
 	$messages = [
 		'type' => 'text',
-		'text' => "Respond :" . $response
+		'text' => "Respond :" . $displayName
 	];
 		
 	
