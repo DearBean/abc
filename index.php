@@ -169,7 +169,7 @@ if (!is_null($events['events'])) {
 		);
 
 			
-		$url = '13.250.89.6';
+		$url = '13.250.89.6/index.jsp';
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		if(curl_errno($ch)){
