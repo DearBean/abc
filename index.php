@@ -95,11 +95,11 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 			// Send the return value of curl connection to the user by messaging	
 	
 			
-			$postString = http_build_query($data);
+			//$postString = http_build_query($data);
 			
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			
