@@ -72,7 +72,7 @@ $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJI
 */
 
 // Get POST body content
-
+$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 $headers = array('Content-Type: application/json');
 $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 			$ch = curl_init();
@@ -92,7 +92,8 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 			$info = curl_getinfo($ch,CURLINFO_HTTP_CODE);
 			curl_close($ch);
 
-
+			$userID = "Uf5df21e3f24bc76070171ef959bf81b5";
+			$messages;
 			if($res===false||!is_string($res)||!strlen($res)){
 				$messages = [
 					'type' => 'text',
