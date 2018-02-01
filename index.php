@@ -148,7 +148,7 @@ if (!is_null($events['events'])) {
 				
 				$messages = [
 					'type' => 'text',
-					'text' => "respond:" . $res
+					'text' => "respond:" . $info
 				];
 				echo $messages;
 			}
