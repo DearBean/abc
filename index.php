@@ -50,7 +50,7 @@ function requestForProfile($ac_token,$userID){
 	
 	replyToUser($userID,$messages,$ac_token);
 				
-	return $displayName;
+//	return $displayName;
 				
 		
 
@@ -85,7 +85,7 @@ if (!is_null($events['events'])) {
 			$timeStamp = $event['timestamp'];
 			
 			// Request for profile and send a push message
-			$displayName = requestForProfile($access_token,$userID);
+			requestForProfile($access_token,$userID);
 
 		
 			$headers = array('Content-Type: application/x-www-form-urlencoded');
@@ -96,9 +96,7 @@ if (!is_null($events['events'])) {
 			// succeeds, I will send userName later.
 			
 			$data = array(
-				'userID' => $userID,
-				'displayName' => $displayName,
-				'timeStamp' => $timeStamp
+				'userID' => $userID
 			);
 
 			
