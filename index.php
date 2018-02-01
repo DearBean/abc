@@ -174,6 +174,7 @@ if (!is_null($events['events'])) {
 
 
 */
+use LINE\LINEBot\Constant\HTTPHeader;
 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=');
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '0f1b60eb2192cbc28463a287a2d30382
 ']);	
