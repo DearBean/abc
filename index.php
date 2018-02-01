@@ -72,34 +72,20 @@ $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJI
 */
 
 // Get POST body content
-$content = file_get_contents('php://input');
-$headers = array('Content-Type: application/json');
+
+$headers = array('Content-Type: application/x-www-form-urlencoded');
 $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
-		/*	if(curl_errno($ch)){
-				$messages = [
-					'type' => 'text',
-					'text' => "\nch False " . curl_error($ch)
-				];
-				
-			}else{
-				
-				$messages = [
-					'type' => 'text',
-					'text' => "\nch True" 
-				];
-				
-			}
-			*/
-			// Send the return value of curl connection to the user by messaging	
-	
+			$data = array(
+				'content' = file_get_contents('php://input')
+			)
 			
-			//$postString = http_build_query($data);
+			$postString = http_build_query($data);
 			
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			
