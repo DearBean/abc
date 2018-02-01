@@ -73,19 +73,17 @@ $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJI
 
 // Get POST body content
 
-$headers = array('Content-Type: application/x-www-form-urlencoded');
+$headers = array('Content-Type: application/json');
 $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
-			$data = array(
-				'content' = json_decode(file_get_contents('php://input'),true)
-			)
+			$content = file_get_contents('php://input');
 			
-			$postString = http_build_query($data);
+			//$postString = http_build_query($data);
 			
 			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 			curl_setopt($ch, CURLOPT_POST, 1);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $content);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			
