@@ -78,7 +78,7 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			$data = array(
-				'content' = file_get_contents('php://input')
+				'content' = json_decode(file_get_contents('php://input'),true)
 			)
 			
 			$postString = http_build_query($data);
