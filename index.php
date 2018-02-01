@@ -177,7 +177,13 @@ if (!is_null($events['events'])) {
 	$httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient('kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=');
 	$bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '0f1b60eb2192cbc28463a287a2d30382
 ']);	
-
+	$response = $bot->getProfile('Uf5df21e3f24bc76070171ef959bf81b5');
+	if ($response->isSucceeded()) {
+		$profile = $response->getJSONDecodedBody();
+		echo $profile['displayName'];
+		echo $profile['pictureUrl'];
+		echo $profile['statusMessage'];
+	}
 	/*	function getUserID(){
 			$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
