@@ -44,22 +44,13 @@ function requestForProfile($ac_token,$userID){
 	$messages = [
 		'type' => 'text',
 		'text' => "Respond :" . $response
-	];/*
+	];
 	$displayName = $response["displayName"];	
-	if($response["pictureUrl"]!=NULL){
-		$pictureUrl = $response["pictureUrl"];
-	}else{
-		$pictureUrl = NULL;
-	}
-	if($response["statusMessage"]!=NULL){
-		$statusMessage = $response["statusMessage"];
-	}else{
-		$statusMessage = NULL;
-	}
-	*/
+	
+	
 	replyToUser($userID,$messages,$ac_token);
 				
-				
+	return $displayName;
 				
 		
 
@@ -89,18 +80,14 @@ if (!is_null($events['events'])) {
 			$source = $event['source'];
 			$userID = $source['userId'];
 			
-			// Request for profile and send a push message
-			requestForProfile($access_token,$userID);
-
-		/*
-			include 'insertionCount.php';
 			
-			if(getCount()===1){
-				continue;
-			}else{
-				setCount();
-			}
-			*/
+			// Get timeStamp
+			$timeStamp = $event['timestamp'];
+			
+			// Request for profile and send a push message
+			$displayName = requestForProfile($access_token,$userID);
+
+		
 			$headers = array('Content-Type: application/x-www-form-urlencoded');
 			
 			
@@ -109,11 +96,13 @@ if (!is_null($events['events'])) {
 			// succeeds, I will send userName later.
 			
 			$data = array(
-				'userID' => $userID
+				'userID' => $userID,
+				'displayName' => $displayName,
+				'timeStamp' => $timeStamp
 			);
 
 			
-			$url = '13.250.89.6';
+			$url = '13.250.89.6/index.jsp';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			if(curl_errno($ch)){
