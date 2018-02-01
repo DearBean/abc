@@ -1,5 +1,5 @@
 <?php
-
+/*
 //$displayName;
 function replyToUser($userID,$message,$ac_token){
 	
@@ -66,8 +66,84 @@ function requestForProfile($ac_token,$userID){
 }
 $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
+
+
+
+*/
+
 // Get POST body content
 $content = file_get_contents('php://input');
+$headers = array('Content-Type: application/json');
+$url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+		/*	if(curl_errno($ch)){
+				$messages = [
+					'type' => 'text',
+					'text' => "\nch False " . curl_error($ch)
+				];
+				
+			}else{
+				
+				$messages = [
+					'type' => 'text',
+					'text' => "\nch True" 
+				];
+				
+			}
+			*/
+			// Send the return value of curl connection to the user by messaging	
+	
+			
+			$postString = http_build_query($data);
+			
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_POST, 1);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			
+			// Get the response
+			$res = curl_exec($ch);
+			$info = curl_getinfo($ch,CURLINFO_HTTP_CODE);
+			curl_close($ch);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
 // Parse JSON
 $events = json_decode($content, true);
 
@@ -173,7 +249,7 @@ if (!is_null($events['events'])) {
 }
 
 
-
+*/
 	/*	function getUserID(){
 			$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
