@@ -1,5 +1,5 @@
 <?php
-/*
+
 //$displayName;
 function replyToUser($userID,$message,$ac_token){
 	
@@ -23,7 +23,7 @@ function replyToUser($userID,$message,$ac_token){
 	//echo $result . "\r\n";
 }
 
-
+/*
 function requestForProfile($ac_token,$userID){
 	
 	// Make a GET request to Messaging API to get profile
@@ -93,7 +93,23 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 			curl_close($ch);
 
 
-
+			if($res===false||!is_string($res)||!strlen($res)){
+				$messages = [
+					'type' => 'text',
+					'text' => "\nFALSE " . curl_errno($res)
+				];
+				echo $messages;
+			}else{
+				
+				$messages = [
+					'type' => 'text',
+					'text' => "respond:" . $displayName
+				];
+				echo $messages;
+			}
+			
+			// Send the return value of curl connection to the user by messaging	
+			replyToUser($userID,$messages,$access_token);
 
 
 
