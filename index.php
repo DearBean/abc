@@ -23,7 +23,6 @@ function replyToUser($userID,$message,$ac_token){
 	//echo $result . "\r\n";
 }
 
-/*
 function requestForProfile($ac_token,$userID){
 	
 	// Make a GET request to Messaging API to get profile
@@ -69,8 +68,8 @@ $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJI
 
 
 
-*/
 
+/*
 // Get POST body content
 $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 $headers = array('Content-Type: application/json');
@@ -121,6 +120,7 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 
 
 
+*/
 
 
 
@@ -143,7 +143,6 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 
 
 
-/*
 
 
 // Parse JSON
@@ -251,7 +250,7 @@ if (!is_null($events['events'])) {
 }
 
 
-*/
+
 	/*	function getUserID(){
 			$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
