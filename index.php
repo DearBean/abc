@@ -42,10 +42,11 @@ function requestForProfile($ac_token,$userID){
 	$temp_pos = stripos($response, "displayName");
 	if($temp_pos===FALSE) exit("Unable to find the start position of displayName");
 	$start_pos = $temp_pos + 14;
-	if(stripos($response, "pictureUrl")===FALSE&&stripos($response, "statusMessage")===FALSE){
+	/*if(stripos($response, "pictureUrl")===FALSE&&stripos($response, "statusMessage")===FALSE){
 		$end_pos = -2;
 	}else if(stripos($response, "pictureUrl"===FALSE)&&stripos($response, "statusMessage")!=FALSE)
-	
+	*/
+	$end_pos = -2;
 	$displayName = substr($response, $start_pos, $end_pos);
 	// Build message to reply back
 	//$displayName = $response['userId'];
