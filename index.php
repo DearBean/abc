@@ -23,6 +23,7 @@ function replyToUser($userID,$message,$ac_token){
 	//echo $result . "\r\n";
 }
 
+/*
 function requestForProfile($ac_token,$userID){
 	
 	// Make a GET request to Messaging API to get profile
@@ -42,11 +43,10 @@ function requestForProfile($ac_token,$userID){
 	$temp_pos = stripos($response, "displayName");
 	if($temp_pos===FALSE) exit("Unable to find the start position of displayName");
 	$start_pos = $temp_pos + 14;
-	/*if(stripos($response, "pictureUrl")===FALSE&&stripos($response, "statusMessage")===FALSE){
+	if(stripos($response, "pictureUrl")===FALSE&&stripos($response, "statusMessage")===FALSE){
 		$end_pos = -2;
 	}else if(stripos($response, "pictureUrl"===FALSE)&&stripos($response, "statusMessage")!=FALSE)
-	*/
-	$end_pos = -2;
+	
 	$displayName = substr($response, $start_pos, $end_pos);
 	// Build message to reply back
 	//$displayName = $response['userId'];
@@ -69,8 +69,8 @@ $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJI
 
 
 
+*/
 
-/*
 // Get POST body content
 $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 $headers = array('Content-Type: application/json');
@@ -121,7 +121,6 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 
 
 
-*/
 
 
 
@@ -144,6 +143,7 @@ $url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/';
 
 
 
+/*
 
 
 // Parse JSON
@@ -251,7 +251,7 @@ if (!is_null($events['events'])) {
 }
 
 
-
+*/
 	/*	function getUserID(){
 			$access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 
