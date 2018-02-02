@@ -74,7 +74,7 @@ $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJI
 // Get POST body content
 $access_token = 'kjFApu9NrI3EaPZnNGjc87fHL/JPsSyFr0kY1Detwn69x8DtLM1kV241eOtcCJIgNWBRGLeRH+AI3U393nRDc8MDaGu6TmaAVoYpZOdZ3jYs+obFkCu3zMNQ/sQkaZknOxEEH+me7jEMaKQwQ+vBzwdB04t89/1O/w1cDnyilFU=';
 $headers = array('Content-Type: application/json');
-$url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/LINEUSER';
+$url = 'http://lineprofile-env.ap-southeast-1.elasticbeanstalk.com/LINEUSER/bbb';
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			$content = file_get_contents('php://input');
